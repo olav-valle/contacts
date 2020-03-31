@@ -14,7 +14,7 @@ public class AddressBookDB implements AddressBook, Serializable {
   private final EntityManager em;
 
   public AddressBookDB() {
-    this.emf = Persistence.createEntityManagerFactory("contacts-pu");
+    this.emf = Persistence.createEntityManagerFactory("contacts-server");
     this.em = this.emf.createEntityManager();
   }
 
