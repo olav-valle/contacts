@@ -36,5 +36,21 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="contacts-mysql_NTNU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://mysql-ait.stud.idi.ntnu.no/olavval"/>
+            <property name="javax.persistence.jdbc.user" value="olavval"/>
+            <property name="javax.persistence.jdbc.password" value="XEf8rmXE"/>
+            <property name="eclipselink.target-database" value="mysql"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
 
 </persistence>
