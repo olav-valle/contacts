@@ -154,7 +154,7 @@ public class AddressBookFileHandler {
     } catch (IOException | ClassNotFoundException e) {
       logger.log(Level.INFO, "Could not open file "
           + inFile.getName() + ". An empty AddressBook was returned.");
-      return new AddressBook();
+      return new AddressBookPlain();
     }
   }
 }

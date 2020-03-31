@@ -1,6 +1,9 @@
 package no.ntnu.idata2001.contacts.model;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Holds details about a contact, like name, address and phone number.
@@ -10,11 +13,20 @@ import java.io.Serializable;
  * @author David J. Barnes and Michael Kölling and Arne Styve
  * @version 2020.03.16
  */
+@Entity
 public class ContactDetails implements Comparable<ContactDetails>, Serializable {
+  @Id
+  @GeneratedValue
   private String name;
   private String phone;
   private String address;
 
+  /**
+   * Default constructor.
+   */
+  public ContactDetails(){
+
+  }
   /**
    * Set up the contact details. All details are trimmed to remove
    * trailing white space.

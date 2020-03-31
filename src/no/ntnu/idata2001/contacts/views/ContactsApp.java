@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import no.ntnu.idata2001.contacts.controllers.MainController;
 import no.ntnu.idata2001.contacts.model.AddressBook;
+import no.ntnu.idata2001.contacts.model.AddressBookDB;
 import no.ntnu.idata2001.contacts.model.ContactDetails;
 
 /**
@@ -36,6 +37,7 @@ public class ContactsApp extends Application {
 
   private MainController mainController;
   private AddressBook addressBook;
+
 
   // The JavaFX ObservableListWrapper used to connect tot he underlying AddressBook
   private ObservableList<ContactDetails> addressBookListWrapper;
@@ -59,9 +61,10 @@ public class ContactsApp extends Application {
 
     // Initialise the main controller
     this.mainController = new MainController();
-
+    // Load Address book from DB
+    this.addressBook = new AddressBookDB();
     // Initialise the Address Book from a file
-    this.addressBook = this.mainController.loadAddressBookFromFile();
+    //this.addressBook = this.mainController.loadAddressBookFromFile();
   }
 
   @Override
@@ -105,7 +108,9 @@ public class ContactsApp extends Application {
   @Override
   public void stop() {
     // Save the address book to file
-    this.mainController.saveAddressBookToFile(this.addressBook);
+    //this.mainController.saveAddressBookToFile(this.addressBook);
+    // Close DB
+    this.addressBook.close();
     // Exit the application
     System.exit(0);
   }
